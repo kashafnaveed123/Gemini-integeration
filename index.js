@@ -17,6 +17,11 @@ app.post("/chat", async (req, res) => {
       return res.status(400).json({ error: "Prompt is required" });
     }
 
+    app.get("/", (req, res) => {
+      res.send("Gemini AI Chatbot API is running!");
+  });
+
+  
     // Using Gemini AI
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const result = await model.generateContent(prompt);
